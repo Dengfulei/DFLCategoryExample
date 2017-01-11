@@ -10,6 +10,36 @@
 #import <CommonCrypto/CommonDigest.h>
 @implementation DFLUtils
 
++ (Class)currentViewControllerClass
+{
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal) {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows) {
+            if (tmpWin.windowLevel == UIWindowLevelNormal) {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    if ([window subviews].count) {
+        UIView * frontView = [[window subviews] objectAtIndex:0];
+        id nextResponder = [frontView nextResponder];
+        
+        if ([nextResponder isKindOfClass:[UIViewController class]])
+            result = nextResponder;
+        else
+            result = window.rootViewController;
+    } else
+        return nil;
+    
+    return [result class];
+}
+
+
 //邮箱
 + (BOOL) validateEmail:(NSString *)email
 {

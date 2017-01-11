@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface DFLUtils : NSObject
-
++ (Class)currentViewControllerClass;
 //邮箱
 + (BOOL) validateEmail:(NSString *)email;
 //手机号码验证
