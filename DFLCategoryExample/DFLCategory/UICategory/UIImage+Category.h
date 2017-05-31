@@ -11,13 +11,18 @@
 @interface UIImage (Category)
 
 - (UIImage *)resizeImageWithCapInsets:(UIEdgeInsets)capInsets;
+//防止图片旋转
 - (UIImage *)fixOrientation;
+//图片旋转角度
 + (UIImage *)image:(UIImage *)image rotation:(UIImageOrientation)orientation;
-//等比例缩放
+//将图片缩放到指定尺寸
 - (UIImage*)scaleToSize:(CGSize)size;
+//将图片缩放到指定尺寸
 + (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
+//图片按缩放因子缩放
 + (UIImage *)scaleImage:(UIImage *)image scaleFactor:(float)scaleFloat;
 
+//生成一张模糊图片
 - (UIImage *)blurImageWithInputRadius:(CGFloat)radius;
 
 // icon ！＝ nil带有头像的二维码 为nil不带头像的二维码

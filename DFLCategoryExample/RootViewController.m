@@ -21,8 +21,9 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-    BOOL isYes = [DFLUtils validateMobile:@"16688888888"];
-    NSLog(@"%@",@(isYes));
+//    BOOL isYes = [DFLUtils validateMobile:@"16688888888"];
+//    NSLog(@"%@",@(isYes));
+    
 }
 
 
